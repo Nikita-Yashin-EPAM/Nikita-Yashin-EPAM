@@ -26,12 +26,19 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     private void initData() {
 
         Customer nikita = new Customer("Nikita", "Yashin");
+        Customer adam = new Customer("Adam", "Smith");
         Product economyPackage = new Product("Economy Package");
+        Product standardPackage = new Product("Standard Package");
         nikita.getProducts().add(economyPackage);
+        nikita.getProducts().add(standardPackage);
+        adam.getProducts().add(standardPackage);
         economyPackage.getCustomers().add(nikita);
+        standardPackage.getCustomers().add(nikita);
 
         customerRepository.save(nikita);
+        customerRepository.save(adam);
         productRepository.save(economyPackage);
+        productRepository.save(standardPackage);
 
     }
 }
