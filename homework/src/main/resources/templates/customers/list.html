@@ -22,17 +22,35 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title">Customers</h1>
+                    <h1 class="panel-title">Products</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive" th:if="${not #lists.isEmpty(customers)}">
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
-                            <tr th:each="customer : ${customers}">
-                                <td th:text="${customer.id}">123</td>
-                                <td th:text="${customer.firstName}">Nikita</td>
-                                <td th:text="${customer.lastName}">Yashin</td>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                             </tr>
+                            </thead>
+
+                            <tr th:remove="all">
+                                <td th:text="${customer.id}">1</td>
+                                <td th:text="${customer.firstName}">First Name1</td>
+                                <td th:text="${customer.lastName}">Last Name1</td>
+                            </tr>
+                            <tr th:remove="all">
+                                <td th:text="${customer.id}">2</td>
+                                <td th:text="${customer.firstName}">First Name2</td>
+                                <td th:text="${customer.lastName}">Last Name2</td>
+                            </tr>
+                            <tr th:each="customer : ${customers}">
+                                <td th:text="${customer.id}">3</td>
+                                <td th:text="${customer.firstName}">First Name3</td>
+                                <td th:text="${customer.lastName}">Last Name3</td>
+                            </tr>
+
                         </table>
                     </div>
                 </div>
@@ -40,6 +58,11 @@
         </div>
     </div>
 </div>
+
+
+</body>
+
+<body>
 
 
 </body>
