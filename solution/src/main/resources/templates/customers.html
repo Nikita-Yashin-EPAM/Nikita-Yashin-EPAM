@@ -39,7 +39,7 @@
                                 <td th:text="${customer.id}"></td>
                                 <td th:text="${customer.firstName}"></td>
                                 <td th:text="${customer.lastName}"></td>
-                                <td><a th:href="@{update/{id}(id=${customer.id})}">Edit</a></td>
+                                <td><a th:href="@{update/{id}(id=${customer.id})}">Check profile</a></td>
                                 <td><a th:href="@{delete/{id}(id=${customer.id})}">Delete</a></td>
                             </tr>
                             <p><a href="/create-customer">Create customer</a></p>

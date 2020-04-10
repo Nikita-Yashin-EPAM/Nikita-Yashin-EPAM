@@ -33,9 +33,21 @@ public class CustomerController {
         customerService.saveCustomer(customer);
         return "redirect:/customers";
     }
-//    @GetMapping("delete-customer/{id}")
-//    public String deleteCustomer(@PathVariable("id") Long id){
-//        customerService.deleteById(id);
-//        return "redirect:/customers";
-//    }
+    @GetMapping("delete/{id}")
+    public String deleteCustomer(@PathVariable("id") Long id){
+        customerService.deleteById(id);
+        return "redirect:/customers";
+    }
+    @GetMapping("/update/{id}")
+    public String updateCustomerForm(@PathVariable("id") Long id, Model model){
+        Customer customer = customerService.findById(id);
+        model.addAttribute("customer", customer);
+        return "/update-customer";
+    }
+
+    @PostMapping("/update-customer")
+    public String updateCustomer(Customer customer){
+        customerService.saveCustomer(customer);
+        return "redirect:/customers";
+    }
 }
