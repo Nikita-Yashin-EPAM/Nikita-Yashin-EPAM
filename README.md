@@ -1,3 +1,3 @@
 # Nikita-Yashin-EPAM
-project homework with H2 (first try)
-project solution with MySQL (CRUD)
+1)project homework (H2)
+2)project solution (MySQL CRUD)
