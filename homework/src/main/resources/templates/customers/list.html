@@ -34,25 +34,16 @@
                                 <th>Last Name</th>
                             </tr>
                             </thead>
-
-                            <tr th:remove="all">
-                                <td th:text="${customer.id}">1</td>
-                                <td th:text="${customer.firstName}">First Name1</td>
-                                <td th:text="${customer.lastName}">Last Name1</td>
-                            </tr>
-                            <tr th:remove="all">
-                                <td th:text="${customer.id}">2</td>
-                                <td th:text="${customer.firstName}">First Name2</td>
-                                <td th:text="${customer.lastName}">Last Name2</td>
-                            </tr>
                             <tr th:each="customer : ${customers}">
                                 <td th:text="${customer.id}">3</td>
                                 <td th:text="${customer.firstName}">First Name3</td>
                                 <td th:text="${customer.lastName}">Last Name3</td>
+                                <td><a th:href="@{customer-update/{id}(id=${customer.id})}">Check</a></td>
+                                <td><a th:href="@{customer-delete/{id}(id=${customer.id})}">Delete</a></td>
                             </tr>
-
                         </table>
                     </div>
+                    <p><a href="/customer/create">Create user</a></p>
                 </div>
             </div>
         </div>
