@@ -25,7 +25,7 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/create")
-    public String createUserForm(Customer customer){
+    public String createCustomerForm(Customer customer){
         return "customer/create";
     }
     @PostMapping("customer/create")
@@ -34,28 +34,15 @@ public class CustomerController {
         return "redirect:/customers";
     }
 
-//    @PostMapping("/user-create")
-//    public String createUser(User user){
-//        userService.saveUser(user);
-//        return "redirect:/users";
-//    }
-//
-//    @GetMapping("user-delete/{id}")
-//    public String deleteUser(@PathVariable("id") Long id){
-//        userService.deleteById(id);
-//        return "redirect:/users";
-//    }
-//
-//    @GetMapping("/user-update/{id}")
-//    public String updateUserForm(@PathVariable("id") Long id, Model model){
-//        User user = userService.findById(id);
-//        model.addAttribute("user", user);
-//        return "user-update";
-//    }
-//
-//    @PostMapping("/user-update")
-//    public String updateUser(User user){
-//        userService.saveUser(user);
-//        return "redirect:/users";
-//    }
+    @GetMapping("/customer-update/{id}")
+    public String updateCustomerhtseForm(@PathVariable("id") Long id, Model model){
+        Customer customer = customerRepository.findById(id).orElse(null);
+        model.addAttribute("customer", customer);
+        return "customer/update";
+    }
+    @PostMapping("/customer/update")
+    public String updateCustomer(Customer customer){
+        customerRepository.save(customer);
+        return "redirect:/customers";
+    }
 }
