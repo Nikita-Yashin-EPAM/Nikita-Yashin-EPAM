@@ -1,31 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<meta charset="UTF-8">
-<title>Create customer</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Customer Product</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 </head>
+
 <body>
-<form action="#" th:action="@{/customer/update}" th:object="${customer}" method="post">
-    <label for="id">ID</label>
-    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
-    <br/>
-    <label for="firstName">First name</label>
-    <input readonly type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
-    <br/>
-    <label for="lastName">Last name</label>
-    <input readonly type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
-    <br/>
-    <label>Products</label>
-    <br/>
-    <tr th:each="product: ${customer.products}">
-        <td th:text="${product.name}" />
-        <br/>
-    </tr>
-    <select th:field="*{products}">
-        <option th:each="product : ${products}"
-                th:value="${product}"
-                th:text="#{${'product.name'}}">new products</option>
-    </select>
-    <input type="submit" value="Add Product">
-</form>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h1 class="panel-title">Products</h1>
+                </div>
+                <div class="panel-body">
+                    <p><a href="/products">Add product</a></p>
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(customer.products)}">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                            </tr>
+                            </thead>
+                            <tr th:each="product : ${customer.products}">
+                                <td th:text="${product.id}">3</td>
+                                <td th:text="${product.name}">First Name3</td>
+                                </td>
+                                <td><a th:href="@{delete-customer-product/{id}(id=${product.id})}">Delete</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

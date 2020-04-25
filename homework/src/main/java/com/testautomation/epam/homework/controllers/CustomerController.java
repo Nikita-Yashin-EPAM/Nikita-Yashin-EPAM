@@ -1,7 +1,9 @@
 package com.testautomation.epam.homework.controllers;
 
 import com.testautomation.epam.homework.model.Customer;
+import com.testautomation.epam.homework.model.Product;
 import com.testautomation.epam.homework.repositories.CustomerRepository;
+import com.testautomation.epam.homework.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,9 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CustomerController {
-    private CustomerRepository customerRepository;
-    public CustomerController(CustomerRepository customerRepository) { this.customerRepository = customerRepository; }
-    @RequestMapping("/customers")
+    private final CustomerRepository customerRepository;
+    private final ProductRepository productRepository;
+
+    public CustomerController(CustomerRepository customerRepository, ProductRepository productRepository) {
+        this.customerRepository = customerRepository;
+        this.productRepository = productRepository;
+    }
+
+    @RequestMapping({"","/","/customers"})
     public String getCustomer(Model model){
         model.addAttribute("customers", customerRepository.findAll());
         return "customers/list";
@@ -37,6 +45,7 @@ public class CustomerController {
     @GetMapping("/customer-update/{id}")
     public String updateCustomerhtseForm(@PathVariable("id") Long id, Model model){
         Customer customer = customerRepository.findById(id).orElse(null);
+        model.addAttribute("products", productRepository.findAll());
         model.addAttribute("customer", customer);
         return "customer/update";
     }
