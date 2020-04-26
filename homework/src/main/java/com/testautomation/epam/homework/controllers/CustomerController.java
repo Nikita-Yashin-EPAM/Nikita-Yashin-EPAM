@@ -6,10 +6,7 @@ import com.testautomation.epam.homework.repositories.CustomerRepository;
 import com.testautomation.epam.homework.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CustomerController {
@@ -52,6 +49,32 @@ public class CustomerController {
     @PostMapping("/customer/update")
     public String updateCustomer(Customer customer){
         customerRepository.save(customer);
+        return "redirect:/customers";
+    }
+    //TODO
+    @GetMapping("/customer-update/{customerId}/products/{prodId}/delete")
+    public String deleteProductForCustomer(@PathVariable("prodId") Long prodId,
+                                           @PathVariable("customerId") Long customerId)
+    {
+        Customer customer = customerRepository.findById(customerId).get();
+        Product product = productRepository.findById(prodId).get();
+        customer.getProducts().remove(product);
+        product.getCustomers().remove(customer);
+        customerRepository.save(customer);
+        productRepository.save(product);
+        return "redirect:/customer-update/{customerId}";
+    }
+    //TODO
+    @GetMapping("/customer-update/{customerId}/products/{prodId}/add")
+    public String addProductForCustomer(@PathVariable("prodId") Long prodId,
+                                        @PathVariable("customerId") Long customerId)
+    {
+        Customer customer = customerRepository.findById(customerId).get();
+        Product product = productRepository.findById(prodId).get();
+        customer.getProducts().add(product);
+        product.getCustomers().add(customer);
+        customerRepository.save(customer);
+        productRepository.save(product);
         return "redirect:/customers";
     }
 }

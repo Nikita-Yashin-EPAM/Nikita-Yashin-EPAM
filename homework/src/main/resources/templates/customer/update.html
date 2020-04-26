@@ -27,19 +27,46 @@
                 </div>
                 <div class="panel-body">
                     <p><a href="/products">Add product</a></p>
-                    <div class="table-responsive" th:if="${not #lists.isEmpty(customer.products)}">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(customer)}">
+
+
+
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
-                                <th>ID</th>
+                                <th>Customer's product</th>
                                 <th>Name</th>
                             </tr>
                             </thead>
                             <tr th:each="product : ${customer.products}">
                                 <td th:text="${product.id}">3</td>
-                                <td th:text="${product.name}">First Name3</td>
+                                <td th:text="${product.name}">name</td>
+                                <td>
+                                    <a th:href="@{{customerId}/products/{productId}/delete
+                                    (customerId=${customer.id},productId=${product.id})}">
+                                        delete</a>
                                 </td>
-                                <td><a th:href="@{delete-customer-product/{id}(id=${product.id})}">Delete</a></td>
+                            </tr>
+                        </table>
+
+
+
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>Available products</th>
+                                <th>Name</th>
+                            </tr>
+                            </thead>
+                            <tr th:each="product : ${products}">
+                                <td th:text="${product.id}">3</td>
+                                <td th:text="${product.name}">Name</td>
+                                </td>
+                                <td>
+                                    <a th:href="@{{customerId}/products/{productId}/
+                                    add(customerId=${customer.id},productId=${product.id})}">
+                                        add</a>
+                                </td>
                             </tr>
                         </table>
                     </div>
