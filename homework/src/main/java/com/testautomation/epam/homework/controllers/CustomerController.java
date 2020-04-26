@@ -75,6 +75,6 @@ public class CustomerController {
         product.getCustomers().add(customer);
         customerRepository.save(customer);
         productRepository.save(product);
-        return "redirect:/customers";
+        return "redirect:/customer-update/{customerId}";
     }
 }

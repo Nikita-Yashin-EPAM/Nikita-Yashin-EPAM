@@ -23,26 +23,23 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title">Products</h1>
+                    <h1 class="panel-title">Services</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive" th:if="${not #lists.isEmpty(products)}">
                         <table class="table table-hover ">
 
                             <thead class="thead-inverse">
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
+                                <th>All services existing at the moment</th>
                             </tr>
                             </thead>
 
                             <tr th:each="product : ${products}">
-                                <td th:text="${product.id}">123</td>
                                 <td th:text="${product.name}">Name of Service</td>
-                                <td><a > Add </a></td>
                             </tr>
-
                         </table>
+                        <p><a href="products/create">Click and create you own service</a></p>
+                        <p><a href="/customers">Home</a></p>
                     </div>
                 </div>
             </div>

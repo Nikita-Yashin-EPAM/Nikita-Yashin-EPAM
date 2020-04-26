@@ -1,6 +1,7 @@
 package com.testautomation.epam.homework.controllers;
 
 import com.testautomation.epam.homework.model.Customer;
+import com.testautomation.epam.homework.model.Product;
 import com.testautomation.epam.homework.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,5 +18,14 @@ public class ProductController {
     public String getProduct(Model model) {
         model.addAttribute("products", productRepository.findAll());
         return "products/list";
+    }
+    @GetMapping("/products/create")
+    public String createProductForm(Product product){
+        return "products/create";
+    }
+    @PostMapping("products/create")
+    public String createProduct(Product product){
+        productRepository.save(product);
+        return "redirect:/customers";
     }
 }

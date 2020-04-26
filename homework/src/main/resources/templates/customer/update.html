@@ -26,7 +26,6 @@
                     <h1 class="panel-title">Products</h1>
                 </div>
                 <div class="panel-body">
-                    <p><a href="/products">Add product</a></p>
                     <div class="table-responsive" th:if="${not #lists.isEmpty(customer)}">
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
@@ -36,8 +35,7 @@
                             </tr>
                             </thead>
                             <tr th:each="product : ${customer.products}">
-                                <td th:text="${product.id}">3</td>
-                                <td th:text="${product.name}">name</td>
+                                <td th:text="${product.name}">Customer's product</td>
                                 <td>
                                     <a th:href="@{{customerId}/products/{productId}/delete
                                     (customerId=${customer.id},productId=${product.id})}">
@@ -48,13 +46,12 @@
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
-                                <th>Available products</th>
+                                <th>Available service</th>
                                 <th>Name</th>
                             </tr>
                             </thead>
                             <tr th:each="product : ${products}">
-                                <td th:text="${product.id}">3</td>
-                                <td th:text="${product.name}">Name</td>
+                                <td th:text="${product.name}">Available products</td>
                                 </td>
                                 <td>
                                     <a th:href="@{{customerId}/products/{productId}/add
@@ -63,6 +60,8 @@
                                 </td>
                             </tr>
                         </table>
+                        <p><a href="/products/create">Create service</a></p>
+                        <p><a href="/customers">Home</a></p>
                     </div>
                 </div>
             </div>
