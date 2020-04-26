@@ -28,9 +28,6 @@
                 <div class="panel-body">
                     <p><a href="/products">Add product</a></p>
                     <div class="table-responsive" th:if="${not #lists.isEmpty(customer)}">
-
-
-
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
@@ -48,9 +45,6 @@
                                 </td>
                             </tr>
                         </table>
-
-
-
                         <table class="table table-hover ">
                             <thead class="thead-inverse">
                             <tr>
@@ -63,8 +57,8 @@
                                 <td th:text="${product.name}">Name</td>
                                 </td>
                                 <td>
-                                    <a th:href="@{{customerId}/products/{productId}/
-                                    add(customerId=${customer.id},productId=${product.id})}">
+                                    <a th:href="@{{customerId}/products/{productId}/add
+                                    (customerId=${customer.id},productId=${product.id})}">
                                         add</a>
                                 </td>
                             </tr>
