@@ -6,7 +6,10 @@ import com.testautomation.epam.homework.repositories.CustomerRepository;
 import com.testautomation.epam.homework.repositories.ProductRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class CustomerController {
@@ -33,6 +36,7 @@ public class CustomerController {
     public String createCustomerForm(Customer customer){
         return "customer/create";
     }
+
     @PostMapping("customer/create")
     public String createUser(Customer customer){
         customerRepository.save(customer);
@@ -51,7 +55,6 @@ public class CustomerController {
         customerRepository.save(customer);
         return "redirect:/customers";
     }
-    //TODO
     @GetMapping("/customer-update/{customerId}/products/{prodId}/delete")
     public String deleteProductForCustomer(@PathVariable("prodId") Long prodId,
                                            @PathVariable("customerId") Long customerId)
@@ -64,7 +67,6 @@ public class CustomerController {
         productRepository.save(product);
         return "redirect:/customer-update/{customerId}";
     }
-    //TODO
     @GetMapping("/customer-update/{customerId}/products/{prodId}/add")
     public String addProductForCustomer(@PathVariable("prodId") Long prodId,
                                         @PathVariable("customerId") Long customerId)
