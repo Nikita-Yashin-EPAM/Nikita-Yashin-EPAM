@@ -61,8 +61,8 @@ public class CustomerControllerTest {
     }
     @Test
     void updateCustomerhtseForm() {
-
-        System.out.println("Not implemented");
+        String viewName = customerController.createUser(customer);
+        assertEquals("customer/update", viewName);
     }
     @Test
     void updateCustomer() {
@@ -73,11 +73,14 @@ public class CustomerControllerTest {
 
     @Test
     void deleteProductForCustomer() {
-        System.out.println("Not implemented");
+        String viewName = customerController.createUser(customer);
+        assertEquals("redirect:/customer-update/{customerId}", viewName);
+
     }
 
     @Test
     void addProductForCustomer() {
-        System.out.println("Not implemented");
+        String viewName = customerController.createUser(customer);
+        assertEquals("redirect:/customer-update/{customerId}", viewName);
     }
 }
