@@ -40,7 +40,7 @@ public class MyStepdefs extends TestBase {
             iShouldNotSeeADataOfTheUser();
         }
     }
-
+    // todo NOT does not work
     @Then("I should not see a data of the user")
     public void iShouldNotSeeADataOfTheUser() {
         taskOnePage.isSearchResultNOTcorrect();
