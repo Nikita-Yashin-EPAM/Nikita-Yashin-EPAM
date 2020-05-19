@@ -2,6 +2,11 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
+import static junit.framework.TestCase.assertFalse;
 
 public class TaskOnePage extends BasePage {
     public TaskOnePage(WebDriver webDriver) {
@@ -18,5 +23,9 @@ public class TaskOnePage extends BasePage {
     public TaskOnePage isSearchResultCorrect(){
         isElementDisplayed(By.xpath("//div[@class='title']"));
         return  this;
+    }
+    public TaskOnePage isSearchResultNOTcorrect(){
+        isElementNOTdisplayed(By.xpath("//div[@class='title']"));
+        return this;
     }
 }

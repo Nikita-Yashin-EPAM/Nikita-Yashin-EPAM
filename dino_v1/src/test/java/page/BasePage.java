@@ -35,5 +35,8 @@ public class BasePage {
         waitVisibility(elementBy);
         return webDriver.findElement(elementBy).getText();
     }
+    public void isElementNOTdisplayed (By elementBy){
+        assertTrue(webDriver.findElements(elementBy).size() > 0);
+    }
 
 }

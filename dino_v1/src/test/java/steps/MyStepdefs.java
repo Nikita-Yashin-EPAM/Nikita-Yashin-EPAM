@@ -32,9 +32,18 @@ public class MyStepdefs extends TestBase {
         taskOnePage.clickSearchButton();
     }
 
-    @Then("^I successfully  get a data of the user$")
-    public void iSuccessfullyGetADataOfTheUser() {
-        taskOnePage.isSearchResultCorrect();
+    @Then("^I should see a data of the user")
+    public void iSuccessfullyGetADataOfTheUser(String visibility) {
+        if(visibility.equals("see")){
+            taskOnePage.isSearchResultCorrect();
+        }else{
+            iShouldNotSeeADataOfTheUser();
+        }
+    }
+
+    @Then("I should not see a data of the user")
+    public void iShouldNotSeeADataOfTheUser() {
+        taskOnePage.isSearchResultNOTcorrect();
     }
 
 }
