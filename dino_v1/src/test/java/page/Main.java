@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Main extends BasePage {
 
-    String SITE_URL = "https://support.google.com/a/#topic=4388346";
+    String SITE_URL = "some_domain.com/company/777/users?name=Izergil";
 
     public Main(WebDriver webDriver) {
         super(webDriver);

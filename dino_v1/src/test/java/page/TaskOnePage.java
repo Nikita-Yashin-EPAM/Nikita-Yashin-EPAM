@@ -13,19 +13,19 @@ public class TaskOnePage extends BasePage {
         super(webDriver);
     }
     public TaskOnePage fillInSearchField(String request){
-        writeText(By.xpath("//form[@id='search-form']/input[@role='combobox']"), request);
+        writeText(By.xpath("somexpath"), request);
         return this;
     }
     public TaskOnePage clickSearchButton(){
-        click(By.cssSelector("#search-form > button.promoted-search__search-button"));
+        click(By.cssSelector("somecss"));
         return this;
     }
     public TaskOnePage isSearchResultCorrect(){
-        isElementDisplayed(By.xpath("//div[@class='title']"));
+        isElementDisplayed(By.xpath("somexpath"));
         return  this;
     }
     public TaskOnePage isSearchResultNOTcorrect(){
-        isElementNOTdisplayed(By.xpath("//div[@class='title']"));
+        isElementNOTdisplayed(By.xpath("somexpath"));
         return this;
     }
 }

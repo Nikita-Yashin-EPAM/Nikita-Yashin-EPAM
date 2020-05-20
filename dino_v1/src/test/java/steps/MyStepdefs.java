@@ -32,18 +32,13 @@ public class MyStepdefs extends TestBase {
         taskOnePage.clickSearchButton();
     }
 
-    @Then("^I should see a data of the user")
+    @Then("^I should (see|not see) a data of the user$")
     public void iSuccessfullyGetADataOfTheUser(String visibility) {
         if(visibility.equals("see")){
             taskOnePage.isSearchResultCorrect();
         }else{
-            iShouldNotSeeADataOfTheUser();
+            taskOnePage.isSearchResultNOTcorrect();
         }
-    }
-    // todo NOT does not work
-    @Then("I should not see a data of the user")
-    public void iShouldNotSeeADataOfTheUser() {
-        taskOnePage.isSearchResultNOTcorrect();
     }
 
 }

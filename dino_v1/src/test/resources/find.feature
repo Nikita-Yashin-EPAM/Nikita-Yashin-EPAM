@@ -1,6 +1,6 @@
 Feature: Find User of a Company
 
-  Scenario: As a registered company I want to be able to find user of the company by correct credentials
+  Scenario: As a registered company I want to be able to find user of the company by correct name
     Given I go to start page
     When I feel search field by "test"
     And I press the search button
@@ -16,4 +16,3 @@ Feature: Find User of a Company
       | name  |
       | name1 |
       | name2 |
-
