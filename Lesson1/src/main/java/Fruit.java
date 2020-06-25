@@ -1,7 +1,10 @@
+/**
+ * @author  Nikita Yashin
+ * @version 1.0
+ */
+
 public class Fruit {
-
     float weight;
-
     public float getWeight() {
         return weight;
     }

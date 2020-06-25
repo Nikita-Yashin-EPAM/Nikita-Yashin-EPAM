@@ -1,14 +1,18 @@
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+
+/**
+ * @author  Nikita Yashin
+ * @version 1.0
+ */
+
 public class Box<T extends Fruit> {
 
     public ArrayList<T> boxArrayList = new ArrayList<T>();
-
     public Box(ArrayList<T> boxArrayList) {
         this.boxArrayList = boxArrayList;
     }
-
 
     void addFruit(T t) {
         boxArrayList.add(t);
