@@ -10,6 +10,7 @@ public abstract class Lesson1 {
             arr[j] = temp;
             return arr;
         } else {
+            
             throw new IndexOutOfBoundsException();
         }
     }

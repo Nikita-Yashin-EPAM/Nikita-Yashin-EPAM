@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+
 public class Box<T extends Fruit> {
 
     public ArrayList<T> boxArrayList = new ArrayList<T>();
